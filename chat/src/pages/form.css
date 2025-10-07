@@ -161,3 +161,12 @@ h2 {
   float: right;
    color: #a450e4;
 }
+@media (max-width: 768px) {
+  .signup-page {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .form-container {
+    width: 90%;
+  }
+}
