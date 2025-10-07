@@ -165,6 +165,10 @@ h2 {
   .signup-page {
     flex-direction: column;
     padding: 1rem;
+    flex-direction: column;
+    height: auto;       /* 100vh → auto */
+    min-height: 100vh;  /* kam se kam full screen */
+    overflow: visible; 
   }
   .form-container {
     width: 100%;
