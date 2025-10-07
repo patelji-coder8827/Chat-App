@@ -1,0 +1,140 @@
+ /* src/components/ChatUI.css */
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #0f172a;
+  color: white;
+}
+
+.home-page {
+  background: #0f172a;
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-link {
+  margin-top: 20px;
+  color: #3b82f6;
+  text-decoration: underline;
+  font-size: 18px;
+}
+
+.container {
+  display: flex;
+  height: calc(100vh - 48px);
+}
+
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+  background-color: #1e293b;
+  border-bottom: 1px solid #1e293b;
+  height: 48px;
+}
+
+.topbar span {
+  margin-left: 20px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #94a3b8;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #1e293b;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.search {
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  background-color: #334155;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.chat-user {
+  display: flex;
+  align-items: center;
+  background-color: #334155;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.chat-user img {
+  width: 30px;
+  height: 30px;
+  padding: 20 px;
+  border-radius: 50%;
+  
+}
+
+.chat-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #1e293b;
+  background-color: #0f172a;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #1e293b;
+}
+
+.chat-header img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-area {
+  padding: 15px 20px;
+  border-top: 1px solid #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #0f172a;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background-color: #1e293b;
+  color: white;
+}
+
+.input-area button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #3b82f6;
+  cursor: pointer;
+}

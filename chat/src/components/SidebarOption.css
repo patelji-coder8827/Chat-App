@@ -1,0 +1,38 @@
+ .sidebar-options1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    justify-content: center;  
+    width: 60px;  
+    padding: 20px 0;
+    background-color: #404142;
+    border-right: 1px solid #141414;
+}
+
+.option1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;  
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.option1:hover {
+    background-color: #e6e8eb;
+    transform: scale(0.5); 
+}
+
+.option1 span {
+    font-size: 24px;  
+}
+
+.option1 p {
+    margin: 0;  
+    font-size: 12px;
+    color: #d3cbcb;
+    font-weight: 600;
+}

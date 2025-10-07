@@ -1,0 +1,163 @@
+ 
+.signup-page {
+  display: flex;  
+  height: 100vh;
+  width: 100vw;
+  background-color: #0d0d1a;  
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+
+.signup-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(100, 50, 200, 0.5) 0%, rgba(0, 0, 0, 0) 70%);
+  filter: blur(80px);  
+  opacity: 0.6;
+}
+
+ 
+.left-column {
+  flex: 1;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 1;
+}
+
+.logo {
+  width:200px; 
+  height: 50%;
+  margin-bottom: 1rem;
+}
+
+.logo-text {
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+ 
+.right-column {
+  flex: 1;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+ 
+.form-container {
+  background-color: rgba(25, 25, 40, 0.8);  
+  backdrop-filter: blur(10px); 
+  border-radius: 15px;
+  padding: 2.5rem;
+  width: 400px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+ 
+h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #fff;
+}
+
+ 
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  color: #c0c0c0;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #6a1b9a;  
+}
+
+.form-button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #6a1b9a, #8e2de2);  
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(106, 27, 154, 0.4);
+}
+
+ 
+.form-link {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #c0c0c0;
+}
+
+.form-link a {
+  color: #8e2de2;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+.form-link a:hover {
+  color: #a450e4;
+}
+
+.bio-preview {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #c0c0c0;
+  font-size: 0.9rem;
+}
+
+.bio-preview h3 {
+  margin-top: 0;
+  font-size: 1rem;
+  color: white;
+}
+.forget_password{
+  float: right;
+   color: #a450e4;
+}

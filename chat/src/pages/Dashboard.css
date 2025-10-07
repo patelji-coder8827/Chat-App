@@ -1,0 +1,175 @@
+ 
+ 
+.dashboard {
+    background-image: url('../assets/Ankit.png');
+    background-size: 120dvh;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+ 
+ .dashboard-container {
+    display: grid;
+    grid-template-rows: auto 1fr; 
+    width: 90%;
+    max-width: 1400px;
+    height: 90vh;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0,0, 0.05);  
+    backdrop-filter: blur(10px);  
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+ 
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    color: white;
+}
+
+.right-side {
+    display: flex;
+    align-items: center;
+}
+
+.right-side img {
+    height: 60px;
+    margin-right: 10px;
+}
+
+.right-side h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.left-side {
+    display: flex;
+    gap: 30px;  
+}
+
+.left-side p {
+    margin: 0;
+    cursor: pointer;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.left-side p:hover {
+    color: #007bff;  
+}
+
+ 
+.main-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px;
+    gap: 50px;
+    flex-wrap: wrap; 
+    color: white;
+}
+
+.left-column {
+    text-align: left;
+    max-width: 500px;
+}
+
+.left-column h2 {
+    font-size: 2.6em;
+    margin-bottom: 20px;
+}
+
+.left-column p {
+    font-size:1.4em;
+    line-height: 1.6;
+    margin-bottom:15px;
+}
+.left-column span{
+    font-size: 1em;
+    line-height: 1.4;
+    font-style: italic;
+}
+
+.right-column img {
+     
+    object-fit: contain;  
+    width: 700px;
+}
+
+
+@media (max-width: 768px) {
+    /* Adjust background for smaller screens */
+    .dashboard {
+        background-size: cover;
+        padding: 10px;
+    }
+
+    /* Adjust container for mobile */
+    .dashboard-container {
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    /* Stack navbar items vertically */
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+
+    /* Center and reduce font sizes */
+    .right-side h1 {
+        font-size: 20px;
+    }
+
+    /* Stack navigation links vertically */
+    .left-side {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* Adjust links font size */
+    .left-side p {
+        font-size: 14px;
+    }
+
+    /* Stack main content vertically */
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        gap: 30px;
+    }
+
+    /* Center and adjust font sizes for left column */
+    .left-column {
+        text-align: center;
+        max-width: 100%;
+    }
+    
+    .left-column h2 {
+        font-size: 2em;
+    }
+
+    .left-column p {
+        font-size: 1.2em;
+    }
+
+    /* Make image responsive */
+    .right-column img {
+        width: 100%;
+        max-width: 400px;
+    }
+}

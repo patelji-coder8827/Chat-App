@@ -1,0 +1,17 @@
+ @import "tailwindcss";
+
+ ::-webkit-scrollbar{
+    display: none;
+ }
+
+ body {
+  background: linear-gradient(135deg, #4b0082, #2c1256, #0d011f);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
