@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import './form.css';
-import Ankit from '../assets/ankit.png';
+import Ankit from '../assets/Ankit.png';
 import { toast } from 'react-toastify';
 function Signin() {
   const [formData, setFormData] = useState({
