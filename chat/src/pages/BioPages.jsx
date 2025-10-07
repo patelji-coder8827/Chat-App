@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './form.css';
-import Ankit from '../assets/ankit.png';
+import Ankit from '../assets/Ankit.png';
 import { toast } from 'react-toastify';
 
 function BioPage() {
