@@ -1,6 +1,6 @@
 import React from 'react'
 import './Dashboard.css'
-import Ankit from '../assets/ankit.png'
+import Ankit from '../assets/Ankit.png'
 import { useNavigate } from 'react-router-dom'
  
 
