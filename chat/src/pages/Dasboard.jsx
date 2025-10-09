@@ -16,7 +16,7 @@ const Dashboard = () => {
                     </div>
                     <div className='left-side'>
                         <p onClick={()=>navigate('/')}>Home</p>
-                        <p>About Us</p>
+                        <p onClick={()=>navigate('/AboutUs')}>About Us</p>
                         <p onClick={()=>navigate('/signup')}>SignUp</p>
                         <p onClick={()=>navigate('/signin')}>SignIn</p>
                     </div>

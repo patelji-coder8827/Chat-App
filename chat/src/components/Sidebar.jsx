@@ -105,6 +105,7 @@ const Sidebar = ({ selectedUser, setSelectedUser, unreadCounts,handleViewChange 
     <div className='sidebar'>
       <div className='sidebar-content'>
         <img className='ankit' src={Ankit} alt="logo" />
+        <h2 className='ardent'>ArdentChat</h2>
         <div className='menu-icon'>
           <img src={assets.menu_icon} alt="menu" />
           <div className='sidebar-options'>

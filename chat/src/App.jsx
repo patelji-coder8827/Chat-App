@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dasboard";
 import { ToastContainer, Bounce } from 'react-toastify';
 import ForgetPassword from "./pages/ForgetPassword";
 import ResetPassword from "./pages/ResetPassword";
+import AboutUs from "./pages/AboutUs";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/Home" element={<Home />} />
         <Route path="/Forget" element={<ForgetPassword/>} />
         <Route path="/reset-password" element={<ResetPassword/>}/>
+        <Route path="/AboutUs" element={<AboutUs/>}/>
       </Routes>
        <ToastContainer
         position="top-right"

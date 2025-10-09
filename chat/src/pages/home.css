@@ -1,9 +1,15 @@
+ 
 .home {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #212529;
+  width: 100%;
+  background: radial-gradient(circle at top left, #09121a, #0b1f2e, #101820);
+  background-attachment: fixed;
+  font-family: 'Poppins', sans-serif;
+  color: #e6f7ff;
+  overflow: hidden;
 }
 
 .chat-container {
@@ -11,46 +17,59 @@
   width: 90%;
   max-width: 1400px;
   height: 90vh;
-  border-radius: 20px;
+  border-radius: 25px;
   overflow: hidden;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(15, 25, 35, 0.55);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 255, 255, 0.15);
+  
+  transition: all 0.4s ease-in-out;
 }
 
+ 
+
+ 
 .two-columns {
   grid-template-columns: 60px 250px 1fr;
 }
 
 .three-columns {
-  
-  grid-template-columns: 60px 300px 730px 330px;
+  grid-template-columns: 60px 300px 720px 300px;
 }
 
- 
 .chat-container .sidebar-options {
   grid-column: 1;
+  background: rgba(0, 234, 255, 0.1);
+  border-right: 1px solid rgba(0, 255, 255, 0.1);
 }
 
 .chat-container .sidebar {
   grid-column: 2;
+  background: rgba(15, 25, 35, 0.6);
+  border-right: 1px solid rgba(0, 255, 255, 0.1);
 }
 
 .chat-container .chat-ui {
   grid-column: 3;
+  background: rgba(0, 0, 0, 0.25);
 }
 
 .chat-container .rightside {
   grid-column: 4;
+  background: rgba(10, 25, 30, 0.55);
+  border-left: 1px solid rgba(0, 255, 255, 0.1);
 }
 
  
-
-  
+.sidebar:hover,
+.rightside:hover,
+.chat-ui:hover {
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+  transition: 0.3s ease;
+}
 
  
-    @media (max-width: 768px) {
+@media (max-width: 768px) {
   .home {
     height: 100vh;
     width: 100vw;
@@ -59,51 +78,43 @@
 
   .chat-container {
     display: grid;
-    /* This template line is mostly ignored by grid-template-areas */
-    grid-template-columns: 0px 2fr; 
-    
-    /* Crucially, all components are mapped to the same "main" area, making them stack */
-    grid-template-areas: 
-      "main";
-    
+    grid-template-columns: 0px 2fr;
+    grid-template-areas: "main";
     width: 100%;
     height: 100%;
     border-radius: 0;
     box-shadow: none;
+    background: rgba(15, 25, 35, 0.95);
   }
 
-  /* Fixed Options Bar (Stays on the far left) */
   .sidebar-options {
     grid-area: main;
-    width: 20px; 
+    width: 50px;
     position: absolute;
     left: 0;
     z-index: 10;
     height: 100%;
+    background: rgba(0, 255, 255, 0.1);
+    border-right: 1px solid rgba(0, 255, 255, 0.15);
   }
 
-  /* Sliding Sidebar Panel */
   .sidebar {
     grid-area: main;
     top: 0;
     left: 0;
-    right: 0px; 
+    right: 0;
     height: 100%;
-    font-size: 1.5rem;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    /* Pushes the sidebar content past the fixed options bar */
-    margin-left: 60px; 
+    border-right: 1px solid rgba(0, 255, 255, 0.1);
+    margin-left: 60px;
     width: calc(100% - 60px);
-    transition: transform 0.3s ease-in-out; /* Enables smooth sliding transitions */
+    background: rgba(10, 25, 30, 0.9);
+    transition: transform 0.3s ease-in-out;
   }
 
-  /* Full-Screen Chat UI (Underneath the sidebar) */
   .chat-ui {
     grid-area: main;
     width: 100%;
     height: 100%;
+    background: rgba(0, 0, 0, 0.25);
   }
-
-  /* Note: The Rightside component is also implicitly mapped to "main" and would need 
-     additional conditional styling in the React component or CSS to manage its visibility on mobile. */
 }

@@ -201,7 +201,7 @@ const Home = () => {
             } else if (deleteType === 'forMe') {
 
                 setMessages(prev => prev.filter(msg => msg.id !== messageId));
-            }
+            }          
         };
 
         socket.on('message', onMessage);
@@ -246,7 +246,7 @@ const Home = () => {
                 )}
             </div>
         </div>
-    );
+    ); 
 };
 
 export default Home;

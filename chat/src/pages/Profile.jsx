@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './profile.css';
-import Ankit from '../assets/Ankit.png';
+import Ankit from '../assets/Ankit.png'; 
 import { toast } from 'react-toastify';
 
 
