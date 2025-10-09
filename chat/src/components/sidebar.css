@@ -6,6 +6,7 @@
   flex-direction: column;
   background: rgba(45, 49, 52, 0.7);
   border-radius: 15px 0 0 15px;
+  width: 250px; 
    
 }
 

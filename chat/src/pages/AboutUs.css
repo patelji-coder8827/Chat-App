@@ -1,4 +1,4 @@
-/* Container */
+ 
 .about-container {
   max-width: 1200px;
   margin: auto;
@@ -7,7 +7,7 @@
   color: #333;
 }
 
-/* 🌌 About Us Navbar – matches Dashboard dark neon theme */
+ 
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -21,13 +21,14 @@
   border-radius: 15px;
   margin-bottom: 30px;
   transition: all 0.4s ease;
+  position: sticky;
 }
 
 .navbar:hover {
   box-shadow: 0 0 35px rgba(0, 234, 255, 0.4);
 }
 
-/* Right Side (Logo + Title) */
+ 
 .navbar .right-side {
   display: flex;
   align-items: center;

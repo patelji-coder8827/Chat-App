@@ -8,8 +8,12 @@
   background-color: #1e1e2d;
   color: #fff;
   gap: 20px;
-  height: 700px;
+  height: 100%;  
+  overflow-y: auto;  
   margin-right: 1px;
+  width: 300px;  
+  min-width: 280px;
+  
 }
 
 .user2 {
