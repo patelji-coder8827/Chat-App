@@ -50,8 +50,13 @@ Chat.connect((error) => {
 });
 
 app.use(cors({
-    origin: process.env.FRONTEND_URL
+    origin: ['http://localhost:5173', process.env.FRONTEND_URL],  
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],  
+    credentials: true
 }));
+
+
 
 
 const uploadDir = path.join(__dirname, 'uploads');
@@ -362,20 +367,16 @@ const transporter = nodemailer.createTransport({
 
 // forgetpassword
 app.post('/Forget_password', (request, response) => {
-    const { email } = request.body;
-    if (!email) {
-        return response.status(400).send({ message: "Email is required." });
-    }
-    const sqlQuery = 'SELECT id, email FROM signup WHERE email = ?';
+   const email = request.body.email?.trim().toLowerCase();
+    if (!email) return res.status(400).send({ message: "Email is required." });
 
-    Chat.query(sqlQuery, [email], (error, result) => {
-        if (error) {
-            console.error("Error in query:", error);
-            return response.status(500).send({ message: "An error occurred." });
+    const sqlQuery = 'SELECT id, email FROM signup WHERE LOWER(email) = ?';
+    Chat.query(sqlQuery, [email], (err, result) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send({ message: "Database error." });
         }
-        if (result.length === 0) {
-            return response.status(404).send({ message: "User not found." });
-        }
+        if (result.length === 0) return res.status(404).send({ message: "User not found." });
 
         const user = result[0];
         const jwtSecret = process.env.JWT_SECRET;

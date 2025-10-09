@@ -8,7 +8,9 @@ const ForgetPassword = () => {
     const [email, setEmail] = useState("");
 
     const handleEmailChanges = (e) => {
-        setEmail(e.target.value);
+        setEmail(e.target.value.trim());
+        console.log("Searching for email:", email);
+
 
     }
     const sumbit = async (e) => {
