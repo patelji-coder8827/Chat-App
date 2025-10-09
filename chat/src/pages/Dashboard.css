@@ -1,4 +1,3 @@
-/* 🌌 ARDENT CHAT - Dashboard Unique Design (Enhanced Visibility) */
 
 .dashboard {
   background: radial-gradient(circle at top right, #0f2027, #203a43, #2c5364);
@@ -14,8 +13,6 @@
   box-sizing: border-box;
   overflow: hidden;
 }
-
-/* Floating Glow Lights */
 .dashboard::before,
 .dashboard::after {
   content: '';
@@ -143,7 +140,6 @@
   align-items: center;
   padding: 60px 40px;
   gap: 60px;
-  flex-wrap: wrap;
   color: #ffffff;
 }
 
@@ -221,25 +217,20 @@
   }
 }
 
- 
-
+ /* ✅ Tablets & small laptops fix */
 @media (max-width: 768px) {
-  .dashboard {
-    background-size: cover;
-    padding: 10px;
-  }
-
-  .dashboard-container {
-    width: 100%;
-    height: auto;
-    border-radius: 0;
-    box-shadow: none;
-  }
-
+  /* Navbar stacking */
   .navbar {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 15px;
     padding: 15px 20px;
+  }
+
+  .right-side {
+    justify-content: center;
+    gap: 10px;
   }
 
   .right-side h1 {
@@ -256,28 +247,68 @@
     font-size: 15px;
   }
 
+  /* Stack dashboard-container vertically */
+  .dashboard-container {
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    width: 95% !important;
+  }
+
+  /* Stack main-content vertically */
   .main-content {
-    flex-direction: column;
-    align-items: center;
-    padding: 30px 15px;
-    gap: 30px;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    gap: 30px !important;
+    padding: 30px 15px !important;
   }
 
   .left-column {
-    text-align: center;
-    max-width: 100%;
+    order: 1 !important;
+    width: 100% !important;
+    max-width: 600px !important;
+    text-align: center !important;
   }
 
-  .left-column h2 {
-    font-size: 2em;
-  }
-
-  .left-column p {
-    font-size: 1.1em;
+  .right-column {
+    order: 2 !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
 
   .right-column img {
-    width: 100%;
-    max-width: 400px;
+    width: 100% !important;
+    max-width: 350px !important;
+    height: auto !important;
+    margin-top: 20px;
+  }
+}
+
+/* ✅ Extra small devices */
+@media (max-width: 480px) {
+  .right-side img {
+    height: 45px;
+    width: 45px;
+  }
+
+  .left-side p {
+    font-size: 13px;
+  }
+
+  .left-column h2 {
+    font-size: 1.8em;
+  }
+
+  .left-column p,
+  .left-column span {
+    font-size: 1em;
+  }
+
+  .right-column img {
+    max-width: 280px !important;
   }
 }
