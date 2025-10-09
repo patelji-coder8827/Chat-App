@@ -202,6 +202,7 @@
    background-color: #1e1e2d;
    border-top: 1px solid #3a3a4c;
    gap: 10px;
+   
  }
  
 
@@ -214,6 +215,7 @@
    padding: 5px 15px;
    border: 1px solid transparent;
    transition: border-color 0.3s ease;
+   margin-bottom: 10px;
  }
  .input-container:focus-within {
   border-color: #8e44ad;

@@ -1,4 +1,11 @@
- 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  font-family: 'Poppins', sans-serif;
+}
 .home {
   display: flex;
   justify-content: center;
@@ -34,7 +41,7 @@
 }
 
 .three-columns {
-  grid-template-columns: 60px 300px 720px 300px;
+  grid-template-columns: 60px 300px 740px 300px;
 }
 
 .chat-container .sidebar-options {
