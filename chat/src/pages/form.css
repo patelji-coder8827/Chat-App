@@ -1,201 +1,389 @@
- .signup-page {
-   display: flex;
-   height: 100vh;
-   width: 100vw;
-   background-color: #0d0d1a;
-   position: relative;
-   justify-content: center;
-   align-items: center;
-   min-height: 100vh;
-   overflow: hidden;
- }
+ 
 
+.signup-page {
+  margin-top: 90px;  
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background: radial-gradient(circle at top right, #0f2027, #203a43, #2c5364);
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+ 
+}
 
- .signup-page::before {
-   content: "";
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   background: radial-gradient(circle, rgba(100, 50, 200, 0.5) 0%, rgba(0, 0, 0, 0) 70%);
-   filter: blur(80px);
-   opacity: 0.6;
- }
+ 
+.signup-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(100, 50, 200, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
+  filter: blur(90px);
+  opacity: 0.7;
+}
 
+ 
+.left-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 1;
+}
 
- .left-column {
-   flex: 1;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   color: white;
-   z-index: 1;
- }
+.logo {
+  width: 220px;
+  height: auto;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 20px #00eaff);
+  animation: float 3s ease-in-out infinite;
+}
 
- .logo {
-   width: 200px;
-   height: 50%;
-   margin-bottom: 1rem;
- }
+.logo-text {
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #00eaff;
+  text-shadow: 0 0 10px #00eaff, 0 0 30px #8e2de2;
+}
 
- .logo-text {
-   font-size: 2.5rem;
-   font-weight: 600;
-   letter-spacing: 2px;
- }
+/* Right Form Section */
+.right-column {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
 
+.form-container {
+  background: rgba(25, 25, 40, 0.8);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 2.5rem;
+  width: 400px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+}
 
- .right-column {
-   flex: 1;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   z-index: 1;
- }
+h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #00eaff;
+  text-shadow: 0 0 8px #00eaff;
+}
 
+/* Inputs */
+.form-group {
+  margin-bottom: 1.5rem;
+}
 
- .form-container {
-   background-color: rgba(25, 25, 40, 0.8);
-   backdrop-filter: blur(10px);
-   border-radius: 15px;
-   padding: 2.5rem;
-   width: 400px;
-   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-   border: 1px solid rgba(255, 255, 255, 0.1);
-   color: white;
- }
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  color: #c0c0c0;
+  margin-bottom: 0.5rem;
+}
 
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
 
- h2 {
-   text-align: center;
-   margin-bottom: 2rem;
-   font-size: 2rem;
-   color: #fff;
- }
+.form-group input:focus {
+  outline: none;
+  border-color: #00eaff;
+  box-shadow: 0 0 8px rgba(0, 234, 255, 0.6);
+}
 
+/* Button */
+.form-button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #6a1b9a, #8e2de2);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
- .form-group {
-   margin-bottom: 1.5rem;
- }
+.form-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(142, 45, 226, 0.5);
+}
 
- .form-group label {
-   display: block;
-   font-size: 0.9rem;
-   color: #c0c0c0;
-   margin-bottom: 0.5rem;
- }
+/* Links */
+.forget_password {
+  float: right;
+  color: #8e2de2;
+  font-size: 0.85rem;
+  transition: color 0.2s;
+}
 
- .form-group input,
- .form-group textarea {
-   width: 100%;
-   padding: 10px;
-   background-color: rgba(255, 255, 255, 0.05);
-   border: 1px solid rgba(255, 255, 255, 0.1);
-   border-radius: 8px;
-   color: #fff;
-   font-size: 1rem;
-   transition: all 0.3s ease;
- }
+.forget_password:hover {
+  color: #a450e4;
+  text-decoration: underline;
+}
 
- .form-group input:focus,
- .form-group textarea:focus {
-   outline: none;
-   border-color: #6a1b9a;
- }
+.form-link {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #c0c0c0;
+}
 
- .form-button {
-   width: 100%;
-   padding: 12px;
-   border: none;
-   border-radius: 8px;
-   background: linear-gradient(90deg, #6a1b9a, #8e2de2);
-   color: #fff;
-   font-size: 1.1rem;
-   font-weight: bold;
-   cursor: pointer;
-   transition: transform 0.2s ease, box-shadow 0.2s ease;
- }
+.form-link a {
+  color: #00eaff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s;
+}
 
- .form-button:hover {
-   transform: translateY(-2px);
-   box-shadow: 0 4px 15px rgba(106, 27, 154, 0.4);
- }
+.form-link a:hover {
+  color: #8e2de2;
+}
 
+.navbar1 {
+  position: fixed;              /* 👈 stays fixed on top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  color: #fff;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.6), rgba(20, 20, 40, 0.7));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(25px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  z-index: 9999;                /* 👈 ensures it's above all content */
+}
 
- .form-link {
-   margin-top: 1.5rem;
-   text-align: center;
-   font-size: 0.9rem;
-   color: #c0c0c0;
- }
+.right-side1 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
- .form-link a {
-   color: #8e2de2;
-   text-decoration: none;
-   font-weight: bold;
-   transition: color 0.2s ease;
- }
+.right-side1 img {
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  border: 2px solid #00eaff;
+  box-shadow: 0 0 15px rgba(0, 234, 255, 0.7);
+  animation: glow 2s ease-in-out infinite alternate;
+}
 
- .form-link a:hover {
-   color: #a450e4;
- }
+.right-side1 h1 {
+  margin: 0;
+  font-size: 32px;
+  color: #00eaff;
+  text-shadow: 0 0 15px rgba(0, 234, 255, 0.8);
+  letter-spacing: 1px;
+  font-weight: bold;
+}
 
- .bio-preview {
-   margin-top: 1.5rem;
-   padding: 1.5rem;
-   background-color: rgba(255, 255, 255, 0.05);
-   border-radius: 8px;
-   border: 1px solid rgba(255, 255, 255, 0.1);
-   color: #c0c0c0;
-   font-size: 0.9rem;
- }
+.left-side1 {
+  display: flex;
+  gap: 30px;
+}
 
- .bio-preview h3 {
-   margin-top: 0;
-   font-size: 1rem;
-   color: white;
- }
+.left-side1 p {
+  margin: 0;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 500;
+  color: #e8e8e8;
+  transition: all 0.3s ease;
+  position: relative;
+  letter-spacing: 0.5px;
+}
 
- .forget_password {
-   float: right;
-   color: #a450e4;
- }
+.left-side1 p::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: linear-gradient(90deg, #00eaff, #ff007f);
+  transition: width 0.3s ease;
+}
 
-  @media (max-width: 768px) {
+.left-side1 p:hover::after {
+  width: 100%;
+}
+
+.left-side1 p:hover {
+  color: #00eaff;
+  text-shadow: 0 0 8px #00eaff;
+}
+
+/* Neon floating animation */
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px #00eaff;
+  }
+  to {
+    box-shadow: 0 0 25px #00eaff;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+ 
+ /* 💻 Tablet and below (Navbar + Form Layout) */
+@media (max-width: 1024px) {
+  /* Navbar adjustments */
+  .right-side1 h1 {
+    font-size: 28px;
+  }
+
+  .left-side1 p {
+    font-size: 18px;
+  }
+
+  /* Signup page tablet view */
   .signup-page {
-    display: flex;
     flex-direction: column;
-    justify-content: flex-start;  /* content top se start ho */
+    height: 100vh;
+    padding: 60px 20px;
+    justify-content: center;
     align-items: center;
-    padding: 1rem;
-    min-height: 130vh;            /* screen full height */
-    overflow-y: auto;             /* vertical scroll enable */
-    scroll-behavior: smooth;
   }
 
   .form-container {
-    width: 90%;                   /* left-right padding ke liye */
-    max-width: 400px;             /* large screens me limit */
-    margin: 1rem 0;               /* top-bottom spacing */
+    width: 85%;
+    max-width: 500px;
+    padding: 3rem 2.5rem;
+    font-size: 1.1rem;
   }
 
-  .logo {
-    width: 120px;
-    height: auto;
-    margin: 0.5rem 0;
+  .form-container h2 {
+    font-size: 2.2rem;
   }
+}
 
-  .logo-text {
-    font-size: 1.8rem;
+/* 📱 Mobile Full Width Fix (Phones under 768px) */
+@media (max-width: 768px) {
+  .navbar1 {
+    flex-direction: column;
     text-align: center;
-    margin-bottom: 0;
+    padding: 15px 20px;
+    gap: 10px;
   }
 
-  /* Optional: bio-preview / links scroll ke liye spacing */
-  .bio-preview,
-  .form-link {
-    margin-bottom: 0.1rem;
+  .right-side1 h1 {
+    font-size: 25px;
+  }
+
+  .left-side1 {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .left-side1 p {
+    font-size: 20px;
+  }
+
+  /* Full-width signup form */
+  /* ✅ FINAL FIX — Make Signup Form Full Width on Mobile */
+@media (max-width: 768px) {
+  .signup-page {
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  }
+
+  .form-container {
+    width: 100vw !important;        /* Full width */
+    height: 100vh !important;       /* Full height */
+    border-radius: 0 !important;    /* Remove corners */
+    padding: 3rem 2rem !important;
+    max-width: none !important;
+    box-shadow: none !important;
+    background: rgba(0, 0, 0, 0.65); /* Smooth dark overlay */
+  }
+
+  .form-group input {
+    font-size: 1.1rem;
+    padding: 14px;
+  }
+
+  .form-button {
+    width: 100%;
+    padding: 16px 0;
+    font-size: 1.2rem;
+  }
+}
+
+  .form-container h2 {
+    font-size: 2rem;
+  }
+
+  .form-group input {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 14px;
+  }
+
+  .form-button {
+    width: 100%;
+    padding: 16px 0;
+    font-size: 1.2rem;
+  }
+}
+
+/* 📱 Small Phones (480px and below) */
+@media (max-width: 480px) {
+  .signup-page {
+    padding: 20px 10px;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form-container {
+    width: 95%;
+    max-width: 380px;
+    padding: 2.2rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .form-container h2 {
+    font-size: 1.8rem;
+  }
+
+  .form-button {
+    font-size: 1rem;
+    padding: 12px 0;
   }
 }

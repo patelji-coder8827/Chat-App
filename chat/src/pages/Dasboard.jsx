@@ -23,11 +23,11 @@ const Dashboard = () => {
                 </div>
                 <div className='main-content'>
                     <div className='left-column'>
-                        <h2>Chatting Friends & Family</h2>
-                        <p>Connect with your loved ones through seamless messaging.</p>
-                        <span>This version focuses on the emotional benefit of connecting with "the people who matter most" 
-                            and uses words like "vibrant" and "effortless" to create a more vivid and appealing image.</span>
-
+                        <h2>Bringing Hearts Closer, One Message at a Time</h2>
+                        <p>
+                            Enter a space where chats glow with life. Effortless messaging, joyful interactions, and meaningful bonds converge in real-time. Stay close to your friends and family, making every moment vibrant, lively, and full of heartfelt connections. 🌌💖
+                        </p>
+                        <button className="cta-button" onClick={()=>navigate('/signup')}>Get Started</button>
                     </div>
                     <div className='right-column'>
                         <img src='cartoon .png' alt="" />

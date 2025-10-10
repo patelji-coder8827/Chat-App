@@ -1,6 +1,6 @@
 
 .dashboard {
-  background: radial-gradient(circle at top right, #0f2027, #203a43, #2c5364);
+   background: radial-gradient(circle at top right, #0f2027, #203a43, #2c5364);
   background-image: url('../assets/Ankit.png');
   background-size: cover;
   background-position: center;
@@ -89,7 +89,7 @@
 
 .right-side h1 {
   margin: 0;
-  font-size: 26px;
+  font-size: 32px;
   color: #00eaff;
   text-shadow: 0 0 15px rgba(0, 234, 255, 0.8);
   letter-spacing: 1px;
@@ -105,7 +105,7 @@
 .left-side p {
   margin: 0;
   cursor: pointer;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 500;
   color: #e8e8e8;
   transition: all 0.3s ease;
@@ -151,19 +151,53 @@
 
 .left-column h2 {
   font-size: 2.4em;
-  margin-bottom: 20px;
-  background: linear-gradient(90deg, #00eaff, #ff007f);
+  font-weight: bold;
+  background: linear-gradient(270deg, #00eaff, #ff007f, #00ff80);
+  background-size: 600% 600%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 20px rgba(0, 234, 255, 0.4);
+  animation: gradientShift 6s ease infinite;
+  text-shadow: 0 0 20px rgba(0,234,255,0.4);
+  
 }
+
+@keyframes gradientShift {
+  0% {background-position:0% 50%;}
+  50% {background-position:100% 50%;}
+  100% {background-position:0% 50%;}
+}
+
 
 .left-column p {
   font-size: 1.3em;
-  line-height: 1.6;
-  margin-bottom: 15px;
+  line-height: 1.8; 
+  margin-top: 20px;
   color: #e5e5e5;
+  margin-bottom: 20px;
 }
+
+ 
+.cta-button {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg,#00eaff,#ff007f);
+  color: #fff;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(0,234,255,0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-top: 15px;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(0,234,255,0.8);
+}
+
+
+ 
 
 .left-column span {
   font-size: 1em;
@@ -217,15 +251,65 @@
   }
 }
 
- /* ✅ Tablets & small laptops fix */
+ /* Tablets and medium screens */
+@media (max-width: 1024px) {
+
+   
+  .right-side h1 {
+    font-size: 28px;
+  }
+
+  .left-side p {
+    font-size: 88px;
+  }
+
+  
+  .main-content {
+    flex-direction: column;
+    padding: 50px 25px;
+    gap: 50px;
+    text-align: center;
+    margin-top: 90px;
+  }
+
+  .left-column {
+    max-width: 100%;
+  }
+
+  .left-column h2 {
+    font-size: 4.8em;  
+  }
+
+  .left-column p {
+    font-size: 3em; /* increased */
+    line-height: 1.8;
+    align-items: center;
+  }
+
+  .cta-button {
+    padding: 12px 28px;
+    font-size: 3.1em;
+  }
+
+  .right-column img {
+    width: 95%;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+}
+
+/* Small screens / Mobile */
 @media (max-width: 768px) {
-  /* Navbar stacking */
   .navbar {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding: 20px 25px;
     gap: 15px;
-    padding: 15px 20px;
+  }
+
+  .left-side {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
   }
 
   .right-side {
@@ -233,82 +317,54 @@
     gap: 10px;
   }
 
-  .right-side h1 {
-    font-size: 20px;
-  }
-
-  .left-side {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .left-side p {
-    font-size: 15px;
-  }
-
-  /* Stack dashboard-container vertically */
-  .dashboard-container {
-    display: flex !important;
-    flex-direction: column !important;
-    height: auto !important;
-    width: 95% !important;
-  }
-
-  /* Stack main-content vertically */
   .main-content {
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-    gap: 30px !important;
-    padding: 30px 15px !important;
-  }
-
-  .left-column {
-    order: 1 !important;
-    width: 100% !important;
-    max-width: 600px !important;
-    text-align: center !important;
-  }
-
-  .right-column {
-    order: 2 !important;
-    width: 100% !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-  }
-
-  .right-column img {
-    width: 100% !important;
-    max-width: 350px !important;
-    height: auto !important;
-    margin-top: 20px;
-  }
-}
-
-/* ✅ Extra small devices */
-@media (max-width: 480px) {
-  .right-side img {
-    height: 45px;
-    width: 45px;
-  }
-
-  .left-side p {
-    font-size: 13px;
+    padding: 40px 20px;
+    gap: 40px;
   }
 
   .left-column h2 {
-    font-size: 1.8em;
+     font-size: 4.8em;   /* increased */
   }
 
-  .left-column p,
-  .left-column span {
+  .left-column p {
+    font-size: 3em;  /* increased */
+    line-height: 1.7;
+  }
+
+  .cta-button {
+    padding: 12px 26px;
+    font-size: 3em;
+  }
+
+  .right-column img {
+    width: 95%;
+    max-width: 400px;
+  }
+}
+
+/* Extra small screens / Phones */
+@media (max-width: 480px) {
+  .main-content {
+    padding: 35px 15px;
+    gap: 35px;
+  }
+
+  .left-column h2 {
+    font-size: 1.7em; /* increased */
+  }
+
+  .left-column p {
+    font-size: 1em; /* increased */
+    line-height: 1.6;
+  }
+
+  .cta-button {
+    padding: 10px 20px;
     font-size: 1em;
   }
 
   .right-column img {
-    max-width: 280px !important;
+    max-width: 320px;
+    width: 90%;
   }
 }
