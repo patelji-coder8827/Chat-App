@@ -21,6 +21,12 @@ const Home = () => {
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
 
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
+ 
+ 
+
+
     useEffect(() => {
         const fetchAllUsers = async () => {
             if (!currentUserId) {
@@ -29,7 +35,7 @@ const Home = () => {
             }
 
             try {
-                const allUsersResponse = await fetch('http://localhost:5000/users');
+               const allUsersResponse = await fetch(`${BACKEND_URL}/users`);
                 const allUsersData = await allUsersResponse.json();
 
                 if (allUsersResponse.ok && allUsersData.users) {
@@ -59,7 +65,7 @@ const Home = () => {
             }
 
             try {
-                const allUsersResponse = await fetch('http://localhost:5000/users');
+                const allUsersResponse = await fetch(`${BACKEND_URL}/users`);
                 const allUsersData = await allUsersResponse.json();
 
                 if (allUsersResponse.ok && allUsersData.users) {
@@ -137,7 +143,7 @@ const Home = () => {
 
         const fetchChatData = async () => {
             try {
-                const msgResponse = await fetch(`http://localhost:5000/messages/${currentUserId}/${selectedUser.id}`);
+                const msgResponse = await fetch(`${BACKEND_URL}/messages/${currentUserId}/${selectedUser.id}`);
                 const msgData = await msgResponse.json();
                 if (msgResponse.ok) {
                     setMessages(msgData.messages);
@@ -145,7 +151,7 @@ const Home = () => {
                     console.error('Failed to fetch messages:', msgData.message);
                 }
 
-                const userResponse = await fetch(`http://localhost:5000/user/${selectedUser.id}`);
+                const userResponse = await fetch(`${BACKEND_URL}/user/${selectedUser.id}`);
                 const userData = await userResponse.json();
                 if (userResponse.ok) {
                     setSelectedUser(prevUser => ({ ...prevUser, bio: userData.user.bio }));

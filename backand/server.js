@@ -19,7 +19,6 @@ app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 const port = process.env.PORT || 5000;
  
-
 const server = http.createServer(app);
 
 const io = new Server(server, {
@@ -50,11 +49,12 @@ Chat.connect((error) => {
 });
 
 app.use(cors({
-    origin: ['http://localhost:5173', process.env.FRONTEND_URL],  
+    origin: process.env.FRONTEND_URL,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],  
+    allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
 }));
+
 
 
 
@@ -145,7 +145,7 @@ io.on('connection', (socket) => {
                     io.to(socket.id).emit('userNotFound', { message: 'Failed to send image.' });
                     return;
                 }
-                finalMessage.image = `http://localhost:5000/uploads/${filename}`;
+                finalMessage.image = `${process.env.BACKEND_URL}/uploads/${filename}`;
                 saveAndSend(finalMessage);
             });
         } else {
@@ -368,7 +368,7 @@ const transporter = nodemailer.createTransport({
 // forgetpassword
 app.post('/Forget_password', (request, response) => {
    const email = request.body.email?.trim().toLowerCase();
-    if (!email) return res.status(400).send({ message: "Email is required." });
+    if (!email) return response.status(400).send({ message: "Email is required." });
 
     const sqlQuery = 'SELECT id, email FROM signup WHERE LOWER(email) = ?';
     Chat.query(sqlQuery, [email], (err, result) => {
@@ -385,7 +385,7 @@ app.post('/Forget_password', (request, response) => {
         const decoded = jwt.verify(reset_token, jwtSecret);
         console.log("Decoded token:", decoded);
 
-        const resetLink = `http://localhost:5173/reset-password?token=${reset_token}`;
+        const resetLink = `${process.env.FRONTEND_URL}/reset-password?token=${reset_token}`;
 
         const mailOptions = {
             from: 'realankitpatel@gmail.com',
@@ -430,7 +430,7 @@ app.post('/reset_password', (request, response) => {
         console.error("Token verification failed:", error);
         return response.status(401).send({ message: "Invalid or expired token. Please try again." });
     }
-}); 4
+}); 
 
 /* User details & other Express routes */
 app.get('/user/:userId', (request, response) => {
@@ -520,7 +520,7 @@ app.post('/api/statuses', upload.single('statusMedia'), (req, res) => {
     const { userId, text } = req.body;
     const mediaFile = req.file;
 
-    // A check to ensure userId exists and either text or a media file is provided
+    
     if (!userId || (!text && !mediaFile)) {
         return res.status(400).json({ message: "User ID, text, or media is required." });
     }

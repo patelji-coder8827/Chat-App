@@ -7,6 +7,10 @@ import { toast } from 'react-toastify';
 
 function Signup() {
     const navigate = useNavigate();
+
+
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
     const [formData, setFormData] = useState({
         FullName: '',
         email: '',
@@ -31,7 +35,7 @@ function Signup() {
         }
 
         try {
-            const response = await fetch("http://localhost:5000/signup", {
+            const response = await fetch(`${BACKEND_URL}/signup`, {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json"
@@ -77,7 +81,7 @@ function Signup() {
                     <h1 className="logo-text">Ardent Chat</h1>
                 </div> */}
                 <div className="right-column">
-                    <div className="form-container">
+                    <div className="form-container1">
                         <h2>Sign Up</h2>
                         <form onSubmit={handleSumbit}>
                             <div className="form-group">

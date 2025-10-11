@@ -59,7 +59,7 @@
   z-index: 1;
 }
 
-.form-container {
+.form-container1 {
   background: rgba(25, 25, 40, 0.8);
   backdrop-filter: blur(15px);
   border-radius: 20px;
@@ -273,19 +273,19 @@ h2 {
     align-items: center;
   }
 
-  .form-container {
-    width: 85%;
+  .form-container1 {
+    width: 100%;
     max-width: 500px;
     padding: 3rem 2.5rem;
     font-size: 1.1rem;
   }
 
-  .form-container h2 {
+  .form-container1 h2 {
     font-size: 2.2rem;
   }
 }
 
-/* 📱 Mobile Full Width Fix (Phones under 768px) */
+ 
 @media (max-width: 768px) {
   .navbar1 {
     flex-direction: column;
@@ -308,8 +308,6 @@ h2 {
     font-size: 20px;
   }
 
-  /* Full-width signup form */
-  /* ✅ FINAL FIX — Make Signup Form Full Width on Mobile */
 @media (max-width: 768px) {
   .signup-page {
     flex-direction: column;
@@ -323,14 +321,14 @@ h2 {
     background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   }
 
-  .form-container {
-    width: 100vw !important;        /* Full width */
-    height: 100vh !important;       /* Full height */
-    border-radius: 0 !important;    /* Remove corners */
+  .form-container1 {
+    width: 100vw !important;        
+    height: 100vh !important;       
+    border-radius: 0 !important;     
     padding: 3rem 2rem !important;
     max-width: none !important;
     box-shadow: none !important;
-    background: rgba(0, 0, 0, 0.65); /* Smooth dark overlay */
+    background: rgba(0, 0, 0, 0.65);  
   }
 
   .form-group input {
@@ -345,7 +343,7 @@ h2 {
   }
 }
 
-  .form-container h2 {
+  .form-container1 h2 {
     font-size: 2rem;
   }
 
@@ -371,14 +369,14 @@ h2 {
     align-items: center;
   }
 
-  .form-container {
+  .form-container1 {
     width: 95%;
     max-width: 380px;
     padding: 2.2rem 1.5rem;
     font-size: 1rem;
   }
 
-  .form-container h2 {
+  .form-container1 h2 {
     font-size: 1.8rem;
   }
 

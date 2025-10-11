@@ -11,6 +11,10 @@ function ProfilePage() {
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
 
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
+
+
     useEffect(() => {
         const fetchProfileData = async () => {
             const userId = localStorage.getItem('userId');
@@ -21,7 +25,7 @@ function ProfilePage() {
             }
 
             try {
-                const response = await fetch(`http://localhost:5000/user/${userId}`);
+                const response = await fetch(`${BACKEND_URL}/user/${userId}`);
                 const json = await response.json();
 
                 if (response.ok) {
@@ -51,7 +55,7 @@ function ProfilePage() {
         if (!userId || !isEditing) return;
 
         try {
-            const response = await fetch(`http://localhost:5000/update-profile`, {
+            const response = await fetch(`${BACKEND_URL}/update-profile`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

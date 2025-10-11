@@ -15,11 +15,13 @@ const ForgetPassword = () => {
 
 
     }
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
     const sumbit = async (e) => {
         e.preventDefault();
         try {
             console.log("Email:", email);
-            const response = await fetch("http://localhost:5000/Forget_password", {
+            const response = await fetch(`${BACKEND_URL}/Forget_password`, {
                 method: "POST",
                 headers: { "Content-type": "application/json" },
                 body: JSON.stringify({ email: email }),

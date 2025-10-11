@@ -15,11 +15,13 @@ const Status = ({ loggedInUser, userList }) => {
     const [currentStatusIndex, setCurrentStatusIndex] = useState(0);
     const [viewerOpen, setViewerOpen] = useState(false);
     const [replyText, setReplyText] = useState('');
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+    
 
     useEffect(() => {
         const fetchStatuses = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/statuses');
+                const response = await fetch(`${BACKEND_URL}/api/statuses`);
                 const data = await response.json();
                 const filteredStatuses = data.statuses.filter(status => {
                     const statusTime = new Date(status.timestamp);
@@ -73,7 +75,7 @@ const Status = ({ loggedInUser, userList }) => {
         if (statusText.trim()) formData.append('text', statusText.trim());
 
         try {
-            const response = await fetch('http://localhost:5000/api/statuses', {
+             const response = await fetch(`${BACKEND_URL}/api/statuses`, {
                 method: 'POST',
                 body: formData,
             });
@@ -104,7 +106,7 @@ const Status = ({ loggedInUser, userList }) => {
     const handleDeleteStatus = async (statusId) => {
         if (!window.confirm('Are you sure you want to delete this status?')) return;
         try {
-            const response = await fetch(`http://localhost:5000/api/statuses/${statusId}`, {
+            const response = await fetch(`${BACKEND_URL}/api/statuses/${statusId}`, {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ userId: loggedInUser.id }),
@@ -292,9 +294,9 @@ const Status = ({ loggedInUser, userList }) => {
                         <div className="status-media-container">
                             {currentStatus.media ? (
                                 currentStatus.media.endsWith('.mp4') ? (
-                                    <video autoPlay controls src={`http://localhost:5000${currentStatus.media}`} />
+                                    <video autoPlay controls src={`${BACKEND_URL}${currentStatus.media}`} />
                                 ) : (
-                                    <img src={`http://localhost:5000${currentStatus.media}`} alt="Status media" />
+                                    <img src={`${BACKEND_URL}${currentStatus.media}`} alt="Status media" />
                                 )
                             ) : (
                                 <div className="status-text-content">

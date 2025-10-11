@@ -80,8 +80,8 @@
    flex-grow: 1;
    height: 500px;
    position: relative;
-    flex-grow: 1; /* takes remaining space */
-  min-width: 300px; /* prevents shrinking too much */
+   flex-grow: 1; 
+   min-width: 300px;  
  }
 
  
@@ -352,7 +352,7 @@
    background-color: #1e1e2d;
    border-top: 1px solid #3a3a4c;
    gap: 10px;
-   margin-bottom: 20px;
+   margin-bottom: 10px;
  }
 
  .emoji {

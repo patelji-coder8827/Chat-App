@@ -221,9 +221,129 @@
   }
 }
 
- @media (min-width: 1200px) {
+ 
+@media (min-width: 1200px) {
   .sidebar {
-    width: 300px;  
-     
+    width: 300px;
+    padding: 20px;
+  }
+  .ankit {
+    width: 60px;
+    height: 60px;
+  }
+  .ardent {
+    font-size: 1.5rem;
+  }
+  .user-avatar {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Large Screens (Laptop) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .sidebar {
+    width: 250px;
+    padding: 15px;
+  }
+  .ankit {
+    width: 55px;
+    height: 55px;
+  }
+  .ardent {
+    font-size: 1.3rem;
+  }
+  .user-avatar {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* Medium Screens (Tablet) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .sidebar {
+    width: 220px;
+    padding: 12px;
+  }
+  .ankit {
+    width: 50px;
+    height: 50px;
+  }
+  .ardent {
+    font-size: 1.2rem;
+  }
+  .user-avatar {
+    width: 40px;
+    height: 40px;
+  }
+  .search-bar input {
+    font-size: 0.9rem;
+  }
+}
+
+ 
+@media (max-width: 767px) {
+  .sidebar {
+    width: 100%;  
+    height: auto;
+    border-radius: 0;
+    padding: 10px;
+  }
+  .sidebar-content {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .ankit {
+    width: 45px;
+    height: 45px;
+  }
+  .ardent {
+    font-size: 1rem;
+  }
+  .menu-icon img {
+    width: 25px;
+  }
+  .search-bar {
+    height: 35px;
+  }
+  .search-bar input {
+    font-size: 0.85rem;
+  }
+  .user-avatar {
+    width: 35px;
+    height: 35px;
+  }
+  .user-name {
+    font-size: 0.9rem;
+  }
+  .online, .offline {
+    font-size: 0.7rem;
+  }
+  .unread-badge {
+    min-width: 16px;
+    height: 16px;
+    font-size: 10px;
+  }
+}
+
+ 
+@media (max-width: 480px) {
+  .sidebar {
+    width: 100%;
+    padding: 8px;
+  }
+  .ankit {
+    width: 40px;
+    height: 40px;
+  }
+  .ardent {
+    font-size: 0.9rem;
+  }
+  .user-avatar {
+    width: 30px;
+    height: 30px;
+  }
+  .user-name {
+    font-size: 0.85rem;
   }
 }

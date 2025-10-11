@@ -9,6 +9,7 @@ function Signin() {
     password: '',
   })
   const navigate = useNavigate();
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,7 +27,7 @@ function Signin() {
       const maskedPassword = '**'.repeat(formData.password.length);
       console.log("Email:", formData.email);
       console.log("Password:", maskedPassword);
-      const response = await fetch("http://localhost:5000/signin", {
+      const response = await fetch(`${BACKEND_URL}/signin`, {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(formData),
@@ -66,7 +67,7 @@ function Signin() {
           <h1 className="logo-text">Ardent Chat</h1>
         </div> */}
         <div className="right-column">
-          <div className="form-container">
+          <div className="form-container1">
             <h2>Sign In</h2>
             <form >
               <div className="form-group">

@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 function BioPage() {
     const [bio, setBio] = useState('');
     const navigate = useNavigate();
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
     const handleBioSubmit = async (e) => {
         e.preventDefault();
@@ -18,7 +19,7 @@ function BioPage() {
         }
         
         try {
-            const response = await fetch("http://localhost:5000/update-bio", {
+            const response = await fetch(`${BACKEND_URL}/update-bio`, {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json"

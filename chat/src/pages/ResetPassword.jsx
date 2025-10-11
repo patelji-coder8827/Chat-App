@@ -10,6 +10,10 @@ const ResetPassword = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
+
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
+
     useEffect(() => {
         const params = new URLSearchParams(location.search);
         const tokenFromUrl = params.get('token');
@@ -31,7 +35,7 @@ const ResetPassword = () => {
         }
 
         try {
-            const response = await fetch("http://localhost:5000/reset_password", {
+            const response = await fetch(`${BACKEND_URL}/reset_password`, {
                 method: "POST",
                 headers: { "Content-type": "application/json" },
                 body: JSON.stringify({ token, newPassword }),
