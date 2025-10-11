@@ -4,4 +4,5 @@ const URL = import.meta.env.VITE_BACKEND_URL;
 
 export const socket = io(URL, {
      withCredentials: true,
+      transports: ['websocket', 'polling'],
 });

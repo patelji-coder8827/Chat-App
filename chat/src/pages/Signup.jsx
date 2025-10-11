@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './form.css';
 import Ankit from '../assets/Ankit.png';
- 
+
 import { toast } from 'react-toastify';
 
 function Signup() {
@@ -38,12 +38,21 @@ function Signup() {
             const response = await fetch(`${BACKEND_URL}/signup`, {
                 method: "POST",
                 headers: {
-                    "Content-type": "application/json"
+                    "Content-Type": "application/json"
                 },
                 body: JSON.stringify(formData),
             });
 
-            const json = await response.json();
+           
+            const text = await response.text();
+            let json = {};
+            try {
+                json = text ? JSON.parse(text) : {};
+            } catch (err) {
+                console.error("Failed to parse JSON:", err, text);
+                toast.error("Invalid response from server.");
+                return;
+            }
 
             if (response.ok && json.message === "signup successful") {
                 if (json.userId) {

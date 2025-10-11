@@ -30,6 +30,7 @@ function Signin() {
       const response = await fetch(`${BACKEND_URL}/signin`, {
         method: "POST",
         headers: { "Content-type": "application/json" },
+        credentials: "include",
         body: JSON.stringify(formData),
       });
       const json = await response.json();

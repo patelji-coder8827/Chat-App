@@ -24,8 +24,6 @@ const Home = () => {
     const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
  
- 
-
 
     useEffect(() => {
         const fetchAllUsers = async () => {

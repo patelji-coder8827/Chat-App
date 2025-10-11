@@ -317,10 +317,10 @@ app.post('/signup', (request, response) => {
     Chat.query(sqlQuery, [FullName, email, password, confirm_password], (error, result) => {
         if (error) {
             console.log("error in query", error);
-            response.status(500).send({ message: "An error occurred." });
+            response.status(500).json({ message: "An error occurred." });
         } else {
             console.log("data inserted");
-            response.send({ message: "signup successful", userId: result.insertId });
+            response.json({ message: "signup successful", userId: result.insertId });
         }
     });
 });
