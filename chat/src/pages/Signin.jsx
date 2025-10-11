@@ -19,21 +19,29 @@ function Signin() {
     }));
 
   };
-
   const handleSubmitLogin = async (e) => {
     e.preventDefault();
     try {
-
       const maskedPassword = '**'.repeat(formData.password.length);
       console.log("Email:", formData.email);
       console.log("Password:", maskedPassword);
+
       const response = await fetch(`${BACKEND_URL}/signin`, {
         method: "POST",
-        headers: { "Content-type": "application/json" },
+        headers: { "Content-Type": "application/json" },
         credentials: "include",
         body: JSON.stringify(formData),
       });
-      const json = await response.json();
+
+      // Read text first
+      const text = await response.text();
+      console.log("Raw response text:", text);
+      let json = {};
+      try {
+        json = text ? JSON.parse(text) : {};
+      } catch (err) {
+        console.error("Failed to parse JSON:", text);
+      }
 
       if (json.message === "signin successful" && json.user) {
         localStorage.setItem('userId', json.user.id);
@@ -47,6 +55,7 @@ function Signin() {
       toast.error("An error occurred. Please try again.");
     }
   };
+
   return (
     <div>
       <div className='navbar1'>

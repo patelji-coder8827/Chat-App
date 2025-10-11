@@ -24,7 +24,8 @@ const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
         origin: process.env.FRONTEND_URL,
-        methods: ["GET", "POST"]
+        methods: ["GET", "POST"],
+        credentials: true
     }
 });
 
@@ -337,7 +338,7 @@ app.post('/signin', (request, response) => {
         } else {
             if (result.length > 0) {
                 const user = result[0];
-                response.send({
+                response.json({
                     message: "signin successful",
                     user: {
                         id: user.id,
@@ -346,7 +347,7 @@ app.post('/signin', (request, response) => {
                     }
                 });
             } else {
-                response.status(401).send({ message: "invalid email or password" });
+                response.status(401).json({ message: "invalid email or password" });
             }
         }
     });
