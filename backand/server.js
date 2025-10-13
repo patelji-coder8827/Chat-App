@@ -53,12 +53,8 @@ app.use(cors({
     origin: process.env.FRONTEND_URL,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    origin: '*',
     credentials: true,
 }));
-
-
-
 
 
 const uploadDir = path.join(__dirname, 'uploads');

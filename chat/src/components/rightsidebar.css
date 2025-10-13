@@ -78,7 +78,7 @@
 
 
 .media-gallery {
-  height: max-content;
+  height: 225px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
   gap: 10px;
@@ -107,9 +107,10 @@
 }
 
 .logout-button-container {
-  margin-top: auto;  
-  width: 300px;
+  margin-bottom: 0;
+  width: 10px;
   align-items: center;
+  
 }
 
 .logout-button {
@@ -123,8 +124,8 @@
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s;
-  margin-bottom: 35px;
- 
+  margin-bottom: 0;
+  position: fixed;
  
 }
 

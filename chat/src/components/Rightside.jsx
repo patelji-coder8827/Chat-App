@@ -48,7 +48,7 @@ const Rightside = ({ selectedUser, onlineUsers, messages }) => {
                     <div className='media-gallery'>
                         {userMedia.length > 0 ? (
                             userMedia.map((msg, index) => (
-                                <div key={msg.id} onClick={() => window.open(msg.image)}>
+                                <div key={msg.id || index} onClick={() => window.open(msg.image)}>
                                     <img src={msg.image} alt={`Media ${index}`} className='media-item' />
                                 </div>
                             ))

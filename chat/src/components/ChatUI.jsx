@@ -120,9 +120,7 @@ const ChatUI = ({ selectedUser, setSelectedUser, onlineUsers, messages, setMessa
             }
         };
     }, []);
-
-
-    const handleImageChange = (e) => {
+ const handleImageChange = (e) => {
         const file = e.target.files[0];
         if (file) {
             const reader = new FileReader();
@@ -153,6 +151,8 @@ const ChatUI = ({ selectedUser, setSelectedUser, onlineUsers, messages, setMessa
         setSelectedImage(null);
         setImagePreview(null);
     };
+
+
 
 
     const handleDelete = (messageId, deleteType) => {
