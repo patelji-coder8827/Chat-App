@@ -24,6 +24,8 @@ const ChatUI = ({ selectedUser, setSelectedUser, onlineUsers, messages, setMessa
     const [reactingToMessageId, setReactingToMessageId] = useState(null);
 
 
+
+
     const handleCopy = (textToCopy) => {
         navigator.clipboard.writeText(textToCopy).then(() => {
             setShowMessageId(null);
@@ -120,7 +122,7 @@ const ChatUI = ({ selectedUser, setSelectedUser, onlineUsers, messages, setMessa
             }
         };
     }, []);
- const handleImageChange = (e) => {
+    const handleImageChange = (e) => {
         const file = e.target.files[0];
         if (file) {
             const reader = new FileReader();
@@ -147,13 +149,12 @@ const ChatUI = ({ selectedUser, setSelectedUser, onlineUsers, messages, setMessa
         };
         setMessages(prevMessages => [...prevMessages, msg]);
         socket.emit('message', msg);
+        console.log('message', msg)
+
         setNewMessage('');
         setSelectedImage(null);
         setImagePreview(null);
     };
-
-
-
 
     const handleDelete = (messageId, deleteType) => {
         socket.emit('deleteMessage', {
@@ -184,7 +185,7 @@ const ChatUI = ({ selectedUser, setSelectedUser, onlineUsers, messages, setMessa
                     <div className="confirmation-modal-overlay" onClick={() => setDeleteOptionsModal(null)}>
                         <div className="delete-options-modal" onClick={(e) => e.stopPropagation()}>
                             {isSender ? (
-                                <>
+                                <> 
                                     <button className="modal-option-btn delete-everyone"
                                         onClick={() => handleDelete(deleteOptionsModal.messageId, 'forEveryone')}>
                                         Delete for Everyone
@@ -206,6 +207,7 @@ const ChatUI = ({ selectedUser, setSelectedUser, onlineUsers, messages, setMessa
                     </div>
                 );
             })()}
+            
 
             <div className='container'>
                 <div className='profile-info'>
@@ -244,7 +246,13 @@ const ChatUI = ({ selectedUser, setSelectedUser, onlineUsers, messages, setMessa
                                         </div>
                                     ) : msg.image ? (
                                         <div className={`message-content message-image-wrapper ${isSent ? 'sent' : 'received'}`}>
-                                            <img className="message-image" src={msg.image} alt="Message content" />
+                                            <img
+                                                className="message-image"
+                                                src={msg.image}
+                                                alt="Message content"
+                                                onError={e => { e.currentTarget.src = assets.image_placeholder || '/fallback.png'; }}
+                                            />
+
                                             <img
                                                 src={Down}
                                                 alt="options"
@@ -278,10 +286,7 @@ const ChatUI = ({ selectedUser, setSelectedUser, onlineUsers, messages, setMessa
                                                         <img className='imggg' src={Delete} alt="" />Delete</div>
                                                 </div>
                                             )}
-
-
                                         </div>
-
                                     )}
                                     <img
                                         className='happy1'

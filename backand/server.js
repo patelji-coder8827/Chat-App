@@ -15,7 +15,7 @@ const multer = require('multer');
 const app = express();
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
-
+ 
 
 const port = process.env.PORT || 5000;
  
@@ -50,10 +50,10 @@ Chat.connect((error) => {
 });
 
 app.use(cors({
-    origin: process.env.FRONTEND_URL,
+    origin: process.env.FRONTEND_URL, // This must be a specific URL, e.g., 'http://localhost:5173'
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
+    credentials: true, // This requires 'origin' to be a specific host, not '*'
 }));
 
 
@@ -90,6 +90,7 @@ io.on('connection', (socket) => {
 
     socket.on('message', (msg) => {
         console.log('Received message:', msg);
+            console.log(msg.image); 
 
         let finalMessage = { ...msg };
 
@@ -122,6 +123,7 @@ io.on('connection', (socket) => {
 
                 finalMsg.id = result.insertId;
                 finalMsg.createdAt = new Date().toISOString();
+                
 
                 if (isOnline) {
                     const receiverSocketId = activeUsers.get(String(finalMsg.receiverId));
@@ -136,6 +138,7 @@ io.on('connection', (socket) => {
             const base64Data = finalMessage.image.split(';base64,').pop();
             const filename = `${uuidv4()}.png`;
             const filepath = path.join(uploadDir, filename);
+            
 
             fs.writeFile(filepath, base64Data, 'base64', (err) => {
                 if (err) {
@@ -149,6 +152,7 @@ io.on('connection', (socket) => {
         } else {
             saveAndSend(finalMessage);
         }
+         console.log("Saved image URL:", finalMessage.image);
     });
 
 
@@ -365,20 +369,27 @@ const transporter = nodemailer.createTransport({
 
 // forgetpassword
 app.post('/Forget_password', (request, response) => {
-   const email = request.body.email?.trim().toLowerCase();
+    const email = request.body.email?.trim().toLowerCase();
     if (!email) return response.status(400).send({ message: "Email is required." });
 
     const sqlQuery = 'SELECT id, email FROM signup WHERE LOWER(email) = ?';
     Chat.query(sqlQuery, [email], (err, result) => {
         if (err) {
             console.error(err);
-            return res.status(500).send({ message: "Database error." });
+            // --- FIX 1 ---
+            return response.status(500).send({ message: "Database error." }); 
         }
-        if (result.length === 0) return res.status(404).send({ message: "User not found." });
+        
+        if (result.length === 0) {
+            // --- FIX 2 ---
+            return response.status(404).send({ message: "User not found." });
+        }
 
         const user = result[0];
         const jwtSecret = process.env.JWT_SECRET;
 
+        // ... JWT and Nodemailer logic proceeds here ...
+        
         const reset_token = jwt.sign({ id: user.id, email: user.email }, jwtSecret, { expiresIn: '10m' });
         const decoded = jwt.verify(reset_token, jwtSecret);
         console.log("Decoded token:", decoded);
@@ -403,7 +414,6 @@ app.post('/Forget_password', (request, response) => {
         });
     });
 });
-
 app.post('/reset_password', (request, response) => {
     const { token, newPassword } = request.body;
 

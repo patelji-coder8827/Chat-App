@@ -6,7 +6,7 @@
   flex-direction: column;
   background: rgba(45, 49, 52, 0.7);
   border-radius: 15px 0 0 15px;
-  width: 250px; 
+  width: 100%; 
    
 }
 
@@ -165,7 +165,7 @@
 }
 
 .user-name {
-  font-size: 1rem;
+  font-size: 5 rem;
   font-weight: 500;
   margin: 0;
   color: #fff;
@@ -221,129 +221,91 @@
   }
 }
 
- 
-@media (min-width: 1200px) {
-  .sidebar {
-    width: 300px;
-    padding: 20px;
-  }
-  .ankit {
-    width: 60px;
-    height: 60px;
-  }
-  .ardent {
-    font-size: 1.5rem;
-  }
-  .user-avatar {
-    width: 50px;
-    height: 50px;
-  }
-}
-
-/* Large Screens (Laptop) */
-@media (min-width: 992px) and (max-width: 1199px) {
-  .sidebar {
-    width: 250px;
-    padding: 15px;
-  }
-  .ankit {
-    width: 55px;
-    height: 55px;
-  }
-  .ardent {
-    font-size: 1.3rem;
-  }
-  .user-avatar {
-    width: 45px;
-    height: 45px;
-  }
-}
-
-/* Medium Screens (Tablet) */
-@media (min-width: 768px) and (max-width: 991px) {
-  .sidebar {
-    width: 220px;
-    padding: 12px;
-  }
-  .ankit {
-    width: 50px;
-    height: 50px;
-  }
-  .ardent {
-    font-size: 1.2rem;
-  }
-  .user-avatar {
-    width: 40px;
-    height: 40px;
-  }
-  .search-bar input {
-    font-size: 0.9rem;
-  }
-}
-
- 
+ /* 📱 Optimized Mobile View (up to 767px width) */
 @media (max-width: 767px) {
   .sidebar {
-    width: 100%;  
-    height: auto;
+    width: 100%;
+    padding: 12px;
     border-radius: 0;
-    padding: 10px;
   }
+
   .sidebar-content {
-    flex-direction: row;
+    display: flex;
+    align-items: center;
     justify-content: flex-start;
   }
+
   .ankit {
-    width: 45px;
-    height: 45px;
+    width: 46px;
+    height: 46px;
   }
+
   .ardent {
-    font-size: 1rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
   }
-  .menu-icon img {
-    width: 25px;
-  }
+
   .search-bar {
-    height: 35px;
+    height: 38px;
+    border-radius: 18px;
   }
+
   .search-bar input {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
   }
+
+  .user-list {
+    padding: 10px 5px;
+  }
+
+  .user-item {
+    padding: 10px 6px;
+    display: flex;
+    align-items: center;
+  }
+
   .user-avatar {
-    width: 35px;
-    height: 35px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 12px;
   }
+
   .user-name {
-    font-size: 0.9rem;
+    font-size: 1.35rem;                /* 🔹 Large and readable like your image */
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 0 6px rgba(142, 68, 173, 0.6);
   }
-  .online, .offline {
-    font-size: 0.7rem;
+
+  .online,
+  .offline {
+    font-size: 0.85rem;
+    color: #a0a0a0;
   }
+
   .unread-badge {
-    min-width: 16px;
-    height: 16px;
-    font-size: 10px;
+    min-width: 18px;
+    height: 18px;
+    font-size: 11px;
   }
 }
 
- 
+/* 📱 Extra Small Devices (below 480px) */
 @media (max-width: 480px) {
-  .sidebar {
-    width: 100%;
-    padding: 8px;
+  .user-name {
+    font-size: 1.4rem;                /* Slightly larger for small mobile screens */
   }
-  .ankit {
+
+  .user-avatar {
     width: 40px;
     height: 40px;
   }
-  .ardent {
+
+  .offline,
+  .online {
     font-size: 0.9rem;
-  }
-  .user-avatar {
-    width: 30px;
-    height: 30px;
-  }
-  .user-name {
-    font-size: 0.85rem;
   }
 }

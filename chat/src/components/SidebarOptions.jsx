@@ -16,7 +16,7 @@ const SidebarOptions = ({ handleViewChange }) => {
         </span>
         <p>Status</p>
       </div>
-      <div className="option1">
+      <div className="option1" onClick={() => handleViewChange('setting')}>
         <span role="img" aria-label="Settings">
           ⚙️
         </span>

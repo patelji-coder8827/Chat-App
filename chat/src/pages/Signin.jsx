@@ -21,8 +21,9 @@ function Signin() {
   };
   const handleSubmitLogin = async (e) => {
     e.preventDefault();
+    console.log("Attempting to fetch URL:",BACKEND_URL);
     try {
-      const maskedPassword = '**'.repeat(formData.password.length);
+      const maskedPassword = '*'.repeat(formData.password.length);
       console.log("Email:", formData.email);
       console.log("Password:", maskedPassword);
 

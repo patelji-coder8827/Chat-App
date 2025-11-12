@@ -83,8 +83,6 @@ const Home = () => {
 
         fetchAllUsers();
     }, [currentUserId, navigate]);
-
-
     const handleViewChange = (newView) => {
         setView(newView);
         setSelectedUser(null);
